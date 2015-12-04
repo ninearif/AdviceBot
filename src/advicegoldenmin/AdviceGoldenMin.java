@@ -45,7 +45,7 @@ public class AdviceGoldenMin {
                         webURL[1] = "https://online.advice.co.th/product/smart-phone/smartphone-asus/asus-zenfone-2-laser-ze500kl-1b251ww-white-";
 
                         //Normal price of each one.
-                        int [] narmalPrice = new int[2];
+                        int [] normalPrice = new int[2];
                         normalPrice[0] = 5090;
                         normalPrice[1] = 5090;
 
@@ -56,12 +56,12 @@ public class AdviceGoldenMin {
                         // get page title 
                         String title = doc.title();
 
-                        // get all links
+                        //Get price from data-price attribute
                         Elements links = doc.select("span[data-price]");
                         for (Element link : links) {
                                 //get current price from loaded html data.
                                 int curPrice = Integer.parseInt(link.attr("data-price"));
-                                if( curPrice < narmalPrice[i]){
+                                if( curPrice < normalPrice[i]){
                                     //When found discount.
                                     System.out.println("\n[!]Shop now >> \tPrice: " + link.attr("data-price")+" Baht");
                             
